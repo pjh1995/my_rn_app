@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
 
 // import Header from './src/components/Header';
 // import Generator from './src/components/Generator';
@@ -39,13 +39,20 @@ class App extends Component {
     return (
       <View style={styles.mainView}>
         <Image
-          // source={{uri: 'https://reactnative.dev/docs/assets/p_cat1.png'}}
+          style={{width: 50, height: 50}}
+          source={{
+            uri: 'https://facebook.github.io/react-native/img/tiny_logo.png',
+          }}
+        />
+        {/* <Image
+          // source={{uri: 'http://reactnative.dev/docs/assets/p_cat1.png'}}
           source={require('./src/assets/images/doan.png')}
           style={styles.image}
           resizeMode="contain"
           onLoadStart={() => alert('onLoadStart')}
           onLoadEnd={() => alert('onLoadEnd')}
-        />
+          onError={(e) => alert('errerer')}
+        /> */}
       </View>
     );
   }
@@ -54,7 +61,7 @@ class App extends Component {
 const styles = StyleSheet.create({
   mainView: {
     flex: 1,
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
     paddingTop: 50,
     paddingBottom: 50,
     alignItems: 'center',
@@ -80,10 +87,11 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
   },
   image: {
-    width: '100%',
+    width: 300,
     height: 700,
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
     resizeMode: 'contain',
+    borderWidth: 2,
   },
 });
 
