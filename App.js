@@ -7,13 +7,14 @@
  */
 
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, ScrollView, Button} from 'react-native';
+import {View, StyleSheet, Image} from 'react-native';
 
 // import Header from './src/components/Header';
 // import Generator from './src/components/Generator';
 // import Numlist from './src/components/Numlist';
-import Input from './src/components/Input';
-import Picker from './src/components/Picker';
+// import Input from './src/components/Input';
+// import Picker from './src/components/Picker';
+// import doan from './src/assets/images/doan.png';
 
 class App extends Component {
   state = {
@@ -37,20 +38,14 @@ class App extends Component {
   render() {
     return (
       <View style={styles.mainView}>
-        <Picker />
-        <Input
-          style={styles.Input}
-          onChange={this.onChangeInput}
-          value={this.state.myTextInput}
+        <Image
+          // source={{uri: 'https://reactnative.dev/docs/assets/p_cat1.png'}}
+          source={require('./src/assets/images/doan.png')}
+          style={styles.image}
+          resizeMode="contain"
+          onLoadStart={() => alert('onLoadStart')}
+          onLoadEnd={() => alert('onLoadEnd')}
         />
-        <Button title="Add Text Input" onPress={this.onAddTextInput} />
-        <ScrollView style={styles.ScrollView}>
-          {this.state.alphabet.map((item, idx) => (
-            <Text key={idx} style={styles.mainText}>
-              {item}
-            </Text>
-          ))}
-        </ScrollView>
       </View>
     );
   }
@@ -59,7 +54,7 @@ class App extends Component {
 const styles = StyleSheet.create({
   mainView: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: 'red',
     paddingTop: 50,
     paddingBottom: 50,
     alignItems: 'center',
@@ -83,6 +78,12 @@ const styles = StyleSheet.create({
   },
   Input: {
     // justifyContent: 'center',
+  },
+  image: {
+    width: '100%',
+    height: 700,
+    backgroundColor: 'red',
+    resizeMode: 'contain',
   },
 });
 
