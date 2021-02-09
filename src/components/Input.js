@@ -10,22 +10,17 @@ import React, {Component} from 'react';
 import {View, StyleSheet, TextInput} from 'react-native';
 
 class Input extends Component {
-  state = {
-    myTextInput: '',
-  };
-  onChangeInput = (v) => {
-    this.setState({myTextInput: v});
-  };
   render() {
     return (
       <View style={styles.mainView}>
         <TextInput
           style={styles.input}
-          value={this.state.myTextInput}
-          onChangeText={this.onChangeInput}
-          multiline={true}
+          value={this.props.value}
+          onChangeText={(v) => this.props.onChange(v)}
+          //   multiline={true}
           maxLength={100}
           autoCapitalize={'none'}
+          editable={true}
         />
       </View>
     );

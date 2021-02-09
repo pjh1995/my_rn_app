@@ -10,7 +10,7 @@ import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
 const Header = (props) => (
-  <TouchableOpacity style={styles.header} onPress={() => alert('Hello world')}>
+  <TouchableOpacity style={styles.header}>
     <View>
       <Text>{props.name}</Text>
     </View>
