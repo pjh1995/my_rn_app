@@ -7,11 +7,12 @@
  */
 
 import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
 
 import Header from './src/components/Header';
 import Generator from './src/components/Generator';
 import Numlist from './src/components/Numlist';
+import Input from './src/components/Input';
 
 class App extends Component {
   state = {
@@ -20,7 +21,17 @@ class App extends Component {
   };
 
   onAddRandomNum = () => {
-    alert('press random buttom');
+    const randomNum = Math.floor(Math.random() * 100) + 1;
+    this.setState((prev) => {
+      return {random: [...prev.random, randomNum]};
+    });
+  };
+
+  onNumDelete = (idx) => {
+    const newRandom = this.state.random.filter((num, i) => i !== idx);
+    this.setState({
+      random: [...newRandom],
+    });
   };
 
   render() {
@@ -32,8 +43,11 @@ class App extends Component {
             Hello world
           </Text>
         </View>
-        <Generator onAddRandomNum={this.onAddRandomNum} />
-        <Numlist nums={this.state.random} />
+        <Generator onAdd={this.onAddRandomNum} />
+        <ScrollView style={styles.ScrollView}>
+          <Numlist nums={this.state.random} onDelete={this.onNumDelete} />
+        </ScrollView>
+        <Input style={styles.Input} />
       </View>
     );
   }
@@ -44,6 +58,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     paddingTop: 50,
+    paddingBottom: 50,
     alignItems: 'center',
   },
   subView: {
@@ -55,6 +70,14 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     color: 'red',
     padding: 20,
+  },
+  ScrollView: {
+    width: '100%',
+    borderColor: 'black',
+    borderWidth: 2,
+  },
+  Input: {
+    // justifyContent: 'center',
   },
 });
 

@@ -11,7 +11,7 @@ import {View, Text, StyleSheet, Button} from 'react-native';
 
 const Generator = (props) => (
   <View style={styles.generator}>
-    <Button title="Add number" onPress={() => props.onAddRandomNum()} />
+    <Button title="Add number" onPress={() => props.onAdd()} />
   </View>
 );
 
