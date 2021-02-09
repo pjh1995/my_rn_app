@@ -15,6 +15,7 @@ import {StyleSheet, Text, View, Image} from 'react-native';
 // import Input from './src/components/Input';
 // import Picker from './src/components/Picker';
 // import doan from './src/assets/images/doan.png';
+import Modal from './src/components/Modal';
 
 class App extends Component {
   state = {
@@ -38,21 +39,7 @@ class App extends Component {
   render() {
     return (
       <View style={styles.mainView}>
-        <Image
-          style={{width: 50, height: 50}}
-          source={{
-            uri: 'https://facebook.github.io/react-native/img/tiny_logo.png',
-          }}
-        />
-        {/* <Image
-          // source={{uri: 'http://reactnative.dev/docs/assets/p_cat1.png'}}
-          source={require('./src/assets/images/doan.png')}
-          style={styles.image}
-          resizeMode="contain"
-          onLoadStart={() => alert('onLoadStart')}
-          onLoadEnd={() => alert('onLoadEnd')}
-          onError={(e) => alert('errerer')}
-        /> */}
+        <Modal />
       </View>
     );
   }
